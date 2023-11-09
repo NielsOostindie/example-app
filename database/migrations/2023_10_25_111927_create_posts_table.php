@@ -20,7 +20,8 @@ return new class extends Migration
             $table->text('paragraph2')->nullable();
             $table->text('tag1');
             $table->text('tag2')->nullable();
-            $table->binary('image');
+            $table->text('imagename');
+            $table->text('imagepath');
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });

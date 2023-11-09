@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->foreign('post_id')
+            ->references('id')
+            ->on('posts')
+            ->onDelete('cascade');
             $table->string('naam');
             $table->string('comment');
             $table->timestamps();
+
         });
     }
 

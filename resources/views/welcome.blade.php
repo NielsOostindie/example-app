@@ -103,8 +103,8 @@
                     <div class="py-6 px-5">
                         <article>
                             <div>
-                                <?php echo $post->image ?>
-                                <img src="<?=$post->image?>" style="width:342px; height:266px;" alt="Blog Post illustration" class="rounded-xl">
+
+                                <img src="./images/<?=$post->imagename?>" style="width:342px; height:266px;"  class="rounded-xl">
                             </div>
 
                             <div class="space-x-2">

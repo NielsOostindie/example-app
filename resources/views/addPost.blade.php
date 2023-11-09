@@ -31,7 +31,7 @@
         </header>
 
         <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
-            <form action="{{url('/addPost')}}" method="post">
+            <form action="{{url('/addPost')}}" method="post" enctype="multipart/form-data">
             @csrf
                 <input type="text" name="title" placeholder="Title" style="outline: none; width: 295.859px;" class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
                 <br>

@@ -12,10 +12,11 @@ class PostController extends Controller
     public function store(Request $request)
 
     {
-        $post = new Comment;
-        $post->naam = $request->naam;
-        $post->comment = $request->comment;
-        $post->save();
+        $comment = new Comment;
+        $comment->naam = $request->naam;
+        $comment->post_id = $request->post_id;
+        $comment->comment = $request->comment;
+        $comment->save();
         return redirect()->back();
     }
 }

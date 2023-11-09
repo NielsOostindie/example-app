@@ -33,7 +33,7 @@
             <main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-6">
                 <article class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10">
                     <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
-                        <img src="<?= $post->image; ?>" class="rounded-xl">
+                        <img src="/images/<?=$post->imagename?>" class="rounded-xl">
 
                         <p class="mt-4 block text-gray-400 text-xs">
                             Published <time><?php $post_date = Carbon::createFromDate($post->created_at)->diffForHumans();
@@ -85,7 +85,7 @@
             <div class="comments">
                 @foreach($comments as $comment)
                 <div class="flex items-center text-sm mt-4">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                <img src="<?php $avatar = new LetterAvatar($comment->naam,'square'); echo $avatar ?>" alt="Lary avatar" style="border-radius: 0.75rem;">
                     <div class="ml-3 text-left">
                         <h5 class="font-bold"><?= $comment->naam; ?></h5>
                         <h6><?= $comment->comment; ?></h6>
@@ -108,6 +108,7 @@
                 <label for="comment"></label>
                 <textarea placeholder="Your Comment" name="comment" id="comment" cols="30" rows="10" style="outline: none; width: 295.859px;" class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2"></textarea>
                 <br>
+                <input type="hidden" value="<?= $post->id; ?>" name="post_id">
                 <input type="submit" style="width: 295.859px;" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
             </form>
 

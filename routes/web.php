@@ -22,14 +22,14 @@ use App\Models\Comment;
 
 Route::get('/', function () {
     return view('welcome', [
-        'posts' => Post::paginate(1)
+        'posts' => Post::paginate(2)
     ]);
 });
 
 Route::get('/post/{post}', function ($slug) {
     return view('post', [
         'post' => Post::find($slug),
-        'comments' => Comment::all()
+        'comments' => Comment::where('post_id', '=', $slug)->get()
     ]);
 });
 
